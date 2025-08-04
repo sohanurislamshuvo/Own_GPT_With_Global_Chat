@@ -1790,7 +1790,7 @@ if prompt := st.chat_input("What would you like to know?"):
             assistant_avatar = app_config.get("assistant_avatar", "🐱")
 
             with st.chat_message("assistant", avatar=assistant_avatar):
-                with st.spinner("CatGPT is generating your image..."):
+                with st.spinner("LexGPT is generating your image..."):
                     try:
                         image_url = generate_dalle_image(prompt)
                         increment_image_usage(st.session_state.current_user)
@@ -1910,3 +1910,4 @@ st.markdown(f"""
 </div>
 
 """, unsafe_allow_html=True)
+
