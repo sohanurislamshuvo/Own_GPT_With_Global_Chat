@@ -663,16 +663,16 @@ def admin_panel():
                 admin_settings["global_image_generation"] = new_global_state
                 save_admin_settings(admin_settings)
                 if new_global_state:
-                    st.success("✅ Image generation enabled globally!")
+                    st.success("Image generation enabled globally!")
                 else:
-                    st.warning("🚫 Image generation disabled globally!")
+                    st.warning("Image generation disabled globally!")
                 st.rerun()
 
         with col2_global:
             if global_image_enabled:
-                st.success("🟢 Image generation is globally enabled")
+                st.success("Image generation is globally enabled")
             else:
-                st.error("🔴 Image generation is globally disabled")
+                st.error("Image generation is globally disabled")
 
         st.divider()
 
@@ -775,7 +775,7 @@ def admin_panel():
 
                 with col1_img:
                     if not global_image_enabled:
-                        st.error("🚫 Globally Disabled")
+                        st.error("Globally Disabled")
                         st.caption("Enable global image generation first")
                     else:
                         image_enabled = st.checkbox(
@@ -1124,7 +1124,7 @@ def global_chat_interface():
 
     col1, col2 = st.columns([3, 1])
     with col1:
-        st.title(f"🌐 {app_title} Global Chat")
+        st.title(f" {app_title} Global Chat")
         st.caption("Chat with all users in real-time • Your messages on right, others on left")
     with col2:
         if st.button("← Back to Personal Chat", use_container_width=True):
@@ -1219,11 +1219,11 @@ def global_chat_interface():
     current_user = st.session_state.get("current_user", "")
 
     if global_messages:
-        st.subheader("💬 Global Conversation")
+        st.subheader("Global Conversation")
 
         col1_status, col2_status = st.columns([2, 1])
         with col1_status:
-            st.info(f"📊 {len(global_messages)} messages • 🔄 Auto-refresh: ON")
+            st.info(f" {len(global_messages)} messages •Auto-refresh: ON")
         with col2_status:
             current_time_str = datetime.now().strftime("%H:%M:%S")
             st.caption(f"Last update: {current_time_str}")
@@ -1259,13 +1259,8 @@ def global_chat_interface():
         st.markdown('</div>', unsafe_allow_html=True)
         st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
     else:
-        st.info("🌟 Be the first to start the global conversation!")
-        st.markdown("**Welcome to Global Chat!**")
+        st.markdown("Welcome to Global Chat!")
         st.markdown("- Chat with all logged-in users")
-        st.markdown("- Your messages appear on the right (gray)")
-        st.markdown("- Others' messages appear on the left (gray)")
-        st.markdown(f"- New messages appear automatically every {refresh_interval} seconds")
-
     if global_prompt := st.chat_input("Type your message to the global chat..."):
         user_message = {
             "role": "user",
@@ -1910,7 +1905,8 @@ app_title = app_config.get("app_title", "CatGPT")
 st.markdown("---")
 st.markdown(f"""
 <div style='text-align: center; color: #666; font-size: 0.8rem;'>
-    {app_title} v7.0 - Your AI Assistant with Memory<br>
+    {app_title} v9.0 - Your AI Assistant with Memory<br>
     Built by Shuvo | 2025
 </div>
+
 """, unsafe_allow_html=True)
